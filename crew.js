@@ -1,6 +1,6 @@
 
 const fetchCrewDescription = (crew) =>{
-    const fetchPromise = fetch("../starter-code/data.json");
+    const fetchPromise = fetch("./jsonfile/data.json");
 
     fetchPromise
     .then((response)=>{

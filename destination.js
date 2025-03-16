@@ -1,5 +1,5 @@
 const fetchPlanetDescription = (planet) =>{
-    const fetchPromise = fetch("./starter-code/data.json");
+    const fetchPromise = fetch("./jsonfile/data.json");
 
     fetchPromise
     .then((response)=>{
