@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Space tourism website</title>
+
+  <!-- my javascript link -->
+  <script defer src="./app.js"></script>
+</head>
+
+<style>
+     @keyframes fadeIn {
+      0%{
+        opacity: 0;
+      }
+      25%{
+        opacity: .25;
+      }
+      50%{
+        opacity: .5;
+      }
+      75%{
+        opacity: .75;
+      }
+      100%{
+        opacity: 1;
+      }
+    }
+
+  @keyframes slidein{
+      from{
+        right: -250px;
+      }
+      to{
+        right: 0px;
+      }
+    }
+
+  .sidebar{
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.849);
+      /* width: 100vw; */
+      height: 100vh;
+      z-index: 10;
+      width: 70%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4rem;
+      animation: slidein 1s ease-in-out forwards;
+  }
+
+  .sidebar img{
+    display: block;
+    width: 25px;
+  }
+
+  .sidebar ul{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+
+  .activeBtn{
+      background: white;
+      color: black;
+  }
+
+  .active a{
+    position: relative;
+  }
+
+  .active a::after{
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 3px;
+      left: 0;
+      bottom: -17px;
+      background: white;
+    }
+
+  .technology{
+    background: url(../starter-code/assets/technology/background-technology-mobile.jpg) no-repeat;
+    background-size: cover;
+  }
+
+  @media (min-width: 768px){
+    .technology{
+    background: url(../starter-code/assets/technology/background-technology-tablet.jpg) no-repeat;
+    background-size: cover;
+    }
+  }
+
+
+  @media (min-width: 1024px){
+    .technology{
+    background: url(../starter-code/assets/technology/background-technology-desktop.jpg) no-repeat;
+    background-size: cover;
+    }
+  }
+
+
+
+</style>
+<body style="font-family:'Courier New', Courier, monospace">
+
+  <div class="technology relative">
+
+    <header class="flex  items-center justify-between p-4">
+      <div>
+        <a href="./index.html"><img src="../starter-code/assets/shared/logo.svg" alt="logo"></a>
+      </div>
+      
+      <nav class="hidden lg:block lg:bg-gray-700 lg:py-4 lg:px-12 lg:relative ">
+        <img src="../starter-code/assets/shared/icon-close.svg" class="hidden" id="closeBtn">
+        <ul class="flex gap-9 uppercase text-white">
+          <li>
+            <a href="./index.html" class="text-gray-300"><span class="mr-2 font-bold text-white">00</span>Home</a>
+          </li>
+          <li>
+            <a href="./destination.html" class="text-gray-300"><span class="mr-2 font-bold text-white">01</span>Destination</a>
+          </li>
+          <li>
+            <a href="./crew.html" class="text-gray-300"><span class="mr-2 font-bold text-white">02</span>Crew</a>
+          </li>
+          <li class="active">
+            <a href="./technology.html" class="text-gray-300"><span class="mr-2 font-bold text-white">03</span>Technology</a>
+          </li>
+        </ul>
+      </nav>
+
+      <img src="../starter-code/assets/shared/icon-hamburger.svg" alt="menu button" id="menuBtn" class="lg:hidden">
+    </header>
+
+    <main class="space-y-9 lg:py-12 lg:px-26">
+      <h2 class="text-center text-xl md:text-left md:p-8 text-gray-300 uppercase lg:text-2xl"><span class="text-gray-200 mr-4">03</span>Space Launch 101</h2>
+      
+      <section class="flex flex-col items-center justify-center gap-6 lg:flex-row-reverse lg:gap-12 animate-[fadeIn_1s_ease-in-out_forwards]">
+        <picture>
+            <source media = "(min-width: 1024px)" srcset="../starter-code/assets/technology/image-launch-vehicle-portrait.jpg" width="1500px" >
+            <img src="../starter-code/assets/technology/image-launch-vehicle-landscape.jpg" alt="launch vehicle">
+        </picture>
+        <article class="text-gray-400 p-4 flex flex-col gap-6 lg:flex-row lg:justify-between lg:gap-12">
+
+          <div class="spaceVehicles flex gap-6 items-center justify-center lg:justify-start lg:flex-col">
+            <button class="border rounded-full w-10 h-10 activeBtn" data-name="Launch vehicle">1</button>
+            <button class="border rounded-full w-10 h-10" data-name="Spaceport">2</button>
+            <button class="border rounded-full w-10 h-10" data-name="Space capsule">3</button>
+          </div>
+
+          <div class="">
+            <h2 class="text-center uppercase lg:text-lg lg:text-xl lg:text-left">The Technology...</h2>
+            <h1 class="uppercase text-center text-3xl text-white lg:text-left lg:text-4xl">Launch Vehicle</h1>
+            <p class="text-sm mt-4 text-center lg:text-left">
+                A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+  </div>
+
+<script src="./technology.js"></script>
+</body>
+</html>

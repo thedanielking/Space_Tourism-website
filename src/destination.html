@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Space tourism website</title>
+
+  <!-- my javascript link -->
+  <script defer src="./app.js"></script>
+</head>
+
+<style>
+    @keyframes fadeIn {
+      0%{
+        opacity: 0;
+      }
+      25%{
+        opacity: .25;
+      }
+      50%{
+        opacity: .5;
+      }
+      75%{
+        opacity: .75;
+      }
+      100%{
+        opacity: 1;
+      }
+    }
+  
+
+  @keyframes slidein{
+      from{
+        right: -250px;
+      }
+      to{
+        right: 0px;
+      }
+    }
+
+  .sidebar{
+      position: absolute;
+      top: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.849);
+      /* width: 100vw; */
+      height: 100vh;
+      z-index: 10;
+      width: 70%;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4rem;
+      animation: slidein 1s ease-in-out forwards;
+  }
+
+  .sidebar img{
+    display: block;
+    width: 25px;
+  }
+
+  .sidebar ul{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+
+
+  .active a{
+    position: relative;
+  }
+
+  .active a::after{
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 3px;
+      left: 0;
+      bottom: -17px;
+      background: white;
+    }
+
+  .destination{
+    background: url(../starter-code/assets/destination/background-destination-mobile.jpg) no-repeat;
+    background-size: cover;
+  }
+
+  @media (min-width: 768px){
+    .destination{
+    background: url(../starter-code/assets/destination/background-destination-tablet.jpg) no-repeat;
+    background-size: cover;
+    }
+  }
+
+
+  @media (min-width: 1024px){
+    .destination{
+    background: url(../starter-code/assets/destination/background-destination-desktop.jpg) no-repeat;
+    background-size: cover;
+    }
+  }
+
+
+
+</style>
+<body style="font-family:'Courier New', Courier, monospace">
+
+  <div class="destination relative">
+
+    <header class="flex  items-center justify-between p-4">
+      <div>
+        <a href="./index.html"><img src="../starter-code/assets/shared/logo.svg" alt="logo"></a>
+      </div>
+      
+      <nav class="hidden lg:block lg:bg-gray-700 lg:py-4 lg:px-12 lg:relative ">
+        <img src="../starter-code/assets/shared/icon-close.svg" class="hidden" id="closeBtn">
+        <ul class="flex gap-9 uppercase text-white">
+          <li>
+            <a href="./index.html" class="text-gray-300"><span class="mr-2 font-bold text-white">00</span>Home</a>
+          </li>
+          <li class="active">
+            <a href="./destination.html" class="text-gray-300"><span class="mr-2 font-bold text-white">01</span>Destination</a>
+          </li>
+          <li>
+            <a href="./crew.html" class="text-gray-300"><span class="mr-2 font-bold text-white">02</span>Crew</a>
+          </li>
+          <li>
+            <a href="./technology.html" class="text-gray-300"><span class="mr-2 font-bold text-white">03</span>Technology</a>
+          </li>
+        </ul>
+      </nav>
+
+      <img src="../starter-code/assets/shared/icon-hamburger.svg" alt="menu button" id="menuBtn" class="lg:hidden">
+    </header>
+
+    <main class="space-y-4 lg:py-12 lg:px-26 lg:space-y-12">
+      <h2 class="text-center md:text-left md:p-8 text-gray-300 uppercase lg:text-xl"><span class="text-gray-200 mr-4">01</span>Pick your destination</h2>
+    
+      <section class="flex flex-col items-center justify-center gap-4 lg:flex-row lg:gap-12 animate-[fadeIn_1s_ease-in-out_forwards]">
+        <img src="../starter-code/assets/destination/image-moon.png" alt="moon" class="w-full p-6">
+        <article class="text-gray-400 space-y-12 p-4">
+
+          <div class="planets">
+            <ul class="flex justify-center gap-4 uppercase lg:justify-start lg:gap-9">
+              <li class="active"><a href="#" onclick="changePlanets()">Moon</a></li>
+              <li><a href="#" onclick="changePlanets()">Mars</a></li>
+              <li><a href="#" onclick="changePlanets()">Europa</a></li>
+              <li><a href="#" onclick="changePlanets()">Titan</a></li>
+            </ul>
+          </div>
+
+          <div class="space-y-2">
+            <h1 class="uppercase text-center text-2xl text-white lg:text-left lg:text-5xl">Moon</h1>
+            <p class="text-sm text-center lg:text-left">
+                See our planet as you’ve never seen it before. A perfect relaxing trip away to help 
+                regain perspective and come back refreshed. While you’re there, take in some history 
+                by visiting the Luna 2 and Apollo 11 landing sites.
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center border-t border-gray-700 pt-4 lg:flex-row lg:w-3/4 lg:gap-12">
+              <p class="uppercase text-sm text-center lg:text-left">Avg. Distance<span class="text-gray-300 block text-center text-xl lg:text-left">384,400 km</span></p>
+              <p class="uppercase text-sm text-center lg:text-left">Est. Travel Time<span class="text-gray-300 block text-center text-xl lg:text-left">3 days</span></p>
+          </div>
+        </article>
+      </section>
+    </main>
+
+  </div>
+
+<script src="./destination.js"></script>
+</body>
+</html>
